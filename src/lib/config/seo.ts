@@ -46,12 +46,8 @@ export const seoConfig = {
   additionalLinkTags: [
     {
       rel: "icon",
-      href: "/favicon.ico",
-    },
-    {
-      rel: "apple-touch-icon",
-      href: "/apple-touch-icon.png",
-      sizes: "180x180",
+      href: "/nc.svg",
+      type: "image/svg+xml",
     },
   ],
 };
