@@ -28,6 +28,7 @@
 declare module '$env/static/private' {
 	export const TERM_PROGRAM: string;
 	export const NODE: string;
+	export const INIT_CWD: string;
 	export const TERM: string;
 	export const SHELL: string;
 	export const HOMEBREW_REPOSITORY: string;
@@ -44,14 +45,15 @@ declare module '$env/static/private' {
 	export const SSH_AUTH_SOCK: string;
 	export const __CF_USER_TEXT_ENCODING: string;
 	export const npm_execpath: string;
+	export const BUN_WHICH_IGNORE_CWD: string;
+	export const PAGER: string;
 	export const PATH: string;
 	export const npm_package_json: string;
 	export const _: string;
 	export const USER_ZDOTDIR: string;
 	export const __CFBundleIdentifier: string;
-	export const npm_command: string;
 	export const PWD: string;
-	export const npm_lifecycle_event: string;
+	export const DISABLE_AUTO_UPDATE: string;
 	export const npm_package_name: string;
 	export const LANG: string;
 	export const BUN_INSPECT_CONNECT_TO: string;
@@ -65,7 +67,6 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
 	export const HOMEBREW_PREFIX: string;
 	export const LOGNAME: string;
-	export const npm_lifecycle_script: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const BUN_INSTALL: string;
 	export const npm_config_user_agent: string;
@@ -75,7 +76,6 @@ declare module '$env/static/private' {
 	export const HOMEBREW_CELLAR: string;
 	export const npm_node_execpath: string;
 	export const COLORTERM: string;
-	export const NODE_ENV: string;
 }
 
 /**
@@ -109,6 +109,7 @@ declare module '$env/dynamic/private' {
 	export const env: {
 		TERM_PROGRAM: string;
 		NODE: string;
+		INIT_CWD: string;
 		TERM: string;
 		SHELL: string;
 		HOMEBREW_REPOSITORY: string;
@@ -125,14 +126,15 @@ declare module '$env/dynamic/private' {
 		SSH_AUTH_SOCK: string;
 		__CF_USER_TEXT_ENCODING: string;
 		npm_execpath: string;
+		BUN_WHICH_IGNORE_CWD: string;
+		PAGER: string;
 		PATH: string;
 		npm_package_json: string;
 		_: string;
 		USER_ZDOTDIR: string;
 		__CFBundleIdentifier: string;
-		npm_command: string;
 		PWD: string;
-		npm_lifecycle_event: string;
+		DISABLE_AUTO_UPDATE: string;
 		npm_package_name: string;
 		LANG: string;
 		BUN_INSPECT_CONNECT_TO: string;
@@ -146,7 +148,6 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_MAIN: string;
 		HOMEBREW_PREFIX: string;
 		LOGNAME: string;
-		npm_lifecycle_script: string;
 		VSCODE_GIT_IPC_HANDLE: string;
 		BUN_INSTALL: string;
 		npm_config_user_agent: string;
@@ -156,7 +157,6 @@ declare module '$env/dynamic/private' {
 		HOMEBREW_CELLAR: string;
 		npm_node_execpath: string;
 		COLORTERM: string;
-		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}

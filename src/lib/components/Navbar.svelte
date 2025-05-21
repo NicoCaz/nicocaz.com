@@ -2,39 +2,48 @@
 	import { page } from '$app/stores';
 	import { personalInfo } from '$lib/data/personalInfo';
 	import { onMount } from 'svelte';
-
-
-	let isDarkTheme = false;
+	import Sun from 'lucide-svelte/icons/sun';
+	import Moon from 'lucide-svelte/icons/moon';
+	import { toggleMode, mode } from 'mode-watcher';
+	import { Button } from '$lib/components/ui/button/index.js';
 
 	let isScrolled = false;
-
-	function toggleTheme() {
-		isDarkTheme = !isDarkTheme;
-		document.documentElement.classList.toggle('dark', isDarkTheme);
-	}
+	let isMobile = false;
 
 	function handleScroll() {
 		isScrolled = window.scrollY > 0;
 	}
 
+	function checkMobile() {
+		isMobile = window.innerWidth < 768; // Adjust breakpoint as needed
+	}
+
 	onMount(() => {
-		isDarkTheme = document.documentElement.classList.contains('dark');
 		window.addEventListener('scroll', handleScroll);
+		window.addEventListener('resize', checkMobile);
 		handleScroll();
+		checkMobile();
 		return () => {
 			window.removeEventListener('scroll', handleScroll);
+			window.removeEventListener('resize', checkMobile);
 		};
 	});
 </script>
 
 <div
-	class="border-b fixed top-0 left-0 right-0 z-50 transition-all duration-300 {isScrolled ? 'bg-background/80 backdrop-blur-sm' : 'bg-background'}"
+	class="border-b fixed top-0 left-0 right-0 z-50 transition-all duration-300 {isScrolled
+		? 'bg-background/80 backdrop-blur-sm'
+		: 'bg-background'}"
 >
 	<div class="container flex h-16 items-center">
 		<a href="/" class="mr-6 flex items-center space-x-2">
-			<span class="font-semibold inline-block">{personalInfo.name}</span>
+			{#if !isMobile}
+				<span class="font-semibold inline-block">{personalInfo.name}</span>
+			{/if}
 		</a>
-		<nav class="flex items-center space-x-6 text-sm font-medium">
+		<nav
+			class="flex items-center text-sm font-medium {isMobile ? 'space-x-2' : 'space-x-6'}"
+		>
 			<a
 				href="/"
 				class="transition-colors hover:text-foreground/80 text-foreground {$page.url.pathname === '/' ? 'text-foreground' : 'text-foreground/60'}"
@@ -65,8 +74,16 @@
 			</a>
 		</nav>
 
-		<button onclick={toggleTheme} class="ml-auto px-4 py-2 border rounded">
-			{isDarkTheme ? 'Light Mode' : 'Dark Mode'}
-		</button>
+		<div class="ml-auto">
+			<Button on:click={toggleMode} variant="outline" size="icon">
+				<Sun
+					class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all {$mode === 'dark' ? '-rotate-90 scale-0' : ''}"
+				/>
+				<Moon
+					class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all {$mode === 'dark' ? 'rotate-0 scale-100' : ''}"
+				/>
+				<span class="sr-only">Toggle theme</span>
+			</Button>
+		</div>
 	</div>
 </div> 

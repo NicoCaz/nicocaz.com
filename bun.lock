@@ -9,6 +9,7 @@
         "@sveltejs/adapter-cloudflare": "^7.0.3",
         "i18next": "^25.2.0",
         "lucide-svelte": "^0.511.0",
+        "mode-watcher": "0.5.1",
         "motion": "^10.17.0",
         "svelte-i18n": "^4.0.1",
         "svelte-meta-tags": "^3.1.1",
@@ -475,6 +476,8 @@
     "minimatch": ["minimatch@9.0.5", "", { "dependencies": { "brace-expansion": "^2.0.1" } }, ""],
 
     "minipass": ["minipass@7.1.2", "", {}, ""],
+
+    "mode-watcher": ["mode-watcher@0.5.1", "", { "peerDependencies": { "svelte": "^4.0.0 || ^5.0.0-next.1" } }, "sha512-adEC6T7TMX/kzQlaO/MtiQOSFekZfQu4MC+lXyoceQG+U5sKpJWZ4yKXqw846ExIuWJgedkOIPqAYYRk/xHm+w=="],
 
     "motion": ["motion@10.18.0", "", { "dependencies": { "@motionone/animation": "^10.18.0", "@motionone/dom": "^10.18.0", "@motionone/types": "^10.17.1", "@motionone/utils": "^10.18.0" } }, ""],
 

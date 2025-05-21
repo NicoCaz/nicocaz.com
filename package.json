@@ -39,6 +39,7 @@
 		"@sveltejs/adapter-cloudflare": "^7.0.3",
 		"i18next": "^25.2.0",
 		"lucide-svelte": "^0.511.0",
+		"mode-watcher": "0.5.1",
 		"motion": "^10.17.0",
 		"svelte-i18n": "^4.0.1",
 		"svelte-meta-tags": "^3.1.1"

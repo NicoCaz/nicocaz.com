@@ -28,7 +28,7 @@
 </script>
 
 <section class="container">
-	<div class="mx-auto max-w-[980px] py-8 md:py-12">
+	<div class="mx-auto max-w-[980px] py-4 md:py-4">
 		<div class="flex flex-col items-center gap-4 text-center">
 			<h2 class="text-3xl font-bold tracking-tight md:text-4xl">Skills</h2>
 			<p class="max-w-[750px] text-lg text-muted-foreground">
