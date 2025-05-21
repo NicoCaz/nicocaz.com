@@ -72,6 +72,6 @@
 <section class="container">
 	<div class="mx-auto max-w-[980px] py-8 md:py-12">
 		<SocialLinks />
-	</div>
+	</div> 
 </section>
 
