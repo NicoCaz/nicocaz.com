@@ -3,8 +3,6 @@
 	import { projects } from '$lib/data/projects';
 	import { personalInfo } from '$lib/data/personalInfo';
 	import { experience } from '$lib/data/experience';
-
-	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Skills from '$lib/components/Skills.svelte';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
 	import ExperienceCard from '$lib/components/ExperienceCard.svelte';
