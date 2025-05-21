@@ -39,12 +39,6 @@
 
 <section class="container">
 	<div class="mx-auto max-w-[980px] py-8 md:py-12">
-		<div class="flex flex-col items-center gap-4 text-center">
-			<h2 class="text-2xl font-bold leading-tight tracking-tighter md:text-4xl">Featured Skills</h2>
-			<p class="max-w-[750px] text-lg text-muted-foreground">
-				Core competencies and areas of expertise
-			</p>
-		</div>
 		<div class="mt-8">
 			<Skills/>
 		</div>
