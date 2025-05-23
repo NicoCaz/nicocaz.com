@@ -5,6 +5,7 @@
 	import { page } from '$app/stores';
 	import { personalInfo } from '$lib/data/personalInfo';
 	import { seoConfig } from '$lib/config/seo';
+	import { ModeWatcher } from "mode-watcher";
 
 	$: title = $page.data.title 
 		? `${$page.data.title} | ${personalInfo.name}`
@@ -34,5 +35,6 @@
 />
 
 <Layout>
+	<ModeWatcher/>
 	<slot />
 </Layout>

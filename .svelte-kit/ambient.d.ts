@@ -30,6 +30,7 @@ declare module '$env/static/private' {
 	export const NODE: string;
 	export const TERM: string;
 	export const SHELL: string;
+	export const OPENSSLDIR: string;
 	export const HOMEBREW_REPOSITORY: string;
 	export const TMPDIR: string;
 	export const TERM_PROGRAM_VERSION: string;
@@ -39,6 +40,7 @@ declare module '$env/static/private' {
 	export const MallocNanoZone: string;
 	export const npm_config_local_prefix: string;
 	export const PNPM_HOME: string;
+	export const SYSTEM_VERSION_COMPAT: string;
 	export const USER: string;
 	export const COMMAND_MODE: string;
 	export const SSH_AUTH_SOCK: string;
@@ -111,6 +113,7 @@ declare module '$env/dynamic/private' {
 		NODE: string;
 		TERM: string;
 		SHELL: string;
+		OPENSSLDIR: string;
 		HOMEBREW_REPOSITORY: string;
 		TMPDIR: string;
 		TERM_PROGRAM_VERSION: string;
@@ -120,6 +123,7 @@ declare module '$env/dynamic/private' {
 		MallocNanoZone: string;
 		npm_config_local_prefix: string;
 		PNPM_HOME: string;
+		SYSTEM_VERSION_COMPAT: string;
 		USER: string;
 		COMMAND_MODE: string;
 		SSH_AUTH_SOCK: string;
