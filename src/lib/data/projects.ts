@@ -13,7 +13,15 @@ export const projects: Project[] = [
       "Automated compliance checks and audit logging",
       "UX/UI design",
     ],
-    technologies: ["Next.js", "PostgreSQL", "Redis", "Docker", "Cloudflare"],
+    technologies: [
+      "SvelteKit",
+      "PostgreSQL",
+      "Redis",
+      "Docker",
+      "Cloudflare",
+      "Workers",
+      "R2",
+    ],
     url: "https://propimap.com",
   },
   {
