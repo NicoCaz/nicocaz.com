@@ -6,7 +6,7 @@ export const experience: Experience[] = [
     company: "Accenture for external bank client",
     period: "October 2023 - Present",
     description:
-      "Development with .NET/Express/Nest/React/TypeScript, focusing on:",
+      "Development with .NET/Express/Nest/React/TypeScript",
     responsibilities: [
       "Building and maintaining scalable web applications",
       "Implementing RESTful APIs and microservices",
@@ -18,7 +18,7 @@ export const experience: Experience[] = [
     title: "Presale Engineer & Cybersecurity Analyst",
     company: "WellTech",
     period: "June 2021 - October 2023",
-    description: "Key responsibilities included:",
+    description: "Worked on the complete business process from POCs to client contract signing, as well as organizing company projects",
     responsibilities: [
       "Technical support to sales teams",
       "Identifying customer needs and providing solutions",
@@ -33,7 +33,7 @@ export const experience: Experience[] = [
     title: "Project Manager and Product Owner",
     company: "Freelance",
     period: "2019 - Present",
-    description: "Managing projects for major banks in Argentina and Paraguay:",
+    description: "Managing projects for major banks in Argentina and Paraguay",
     responsibilities: [
       "Defining requirements and priorities with clients",
       "Planning and coordinating projects",
