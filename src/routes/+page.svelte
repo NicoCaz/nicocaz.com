@@ -17,6 +17,8 @@
 	description={personalInfo.shortBio}
 />
 
+
+
 <section class="container relative">
 	<div class="mx-auto flex max-w-[980px] flex-col items-center gap-4 py-12 md:py-12 lg:py-24">
 		<h1 class="text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
@@ -38,20 +40,6 @@
 </section>
 
 <section class="container">
-	<div class="mx-auto max-w-[980px] py-4 md:py-4">
-		<div class="mt-8">
-			<Skills/>
-		</div>
-	</div>
-</section>
-
-<section class="container">
-	<div class="mx-auto max-w-[980px] py-8 md:py-12">
-		<ProjectSection {projects} />
-	</div>
-</section>
-
-<section class="container">
 	<div class="mx-auto max-w-[980px] py-8 md:py-12">
 		<div class="flex flex-col items-center gap-4 text-center">
 			<h2 class="text-2xl font-bold leading-tight tracking-tighter md:text-4xl">Work Experience</h2>
@@ -68,6 +56,22 @@
 		</div>
 	</div>
 </section>
+
+
+<section class="container">
+	<div class="mx-auto max-w-[980px] py-4 md:py-4">
+		<div class="mt-8">
+			<Skills/>
+		</div>
+	</div>
+</section>
+
+<section class="container">
+	<div class="mx-auto max-w-[980px] py-8 md:py-12">
+		<ProjectSection {projects} />
+	</div>
+</section>
+
 
 <section class="container">
 	<div class="mx-auto max-w-[980px] py-8 md:py-12">
