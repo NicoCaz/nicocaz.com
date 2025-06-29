@@ -3,7 +3,10 @@ export interface Project {
   description: string;
   features: string[];
   technologies: string[];
-  url: string;
+  url?: string;
+  repository?: string;
+  status: "active" | "completed";
+  icon?: "Map" | "Activity" | "Brain" | "Building2" | "Heart" | "Code2";
 }
 
 export interface Experience {
