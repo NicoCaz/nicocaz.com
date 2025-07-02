@@ -23,6 +23,8 @@ export const projects: Project[] = [
       "R2",
     ],
     url: "https://propimap.com",
+    status: "active",
+    icon: "Map",
   },
   {
     title: "Real time cow monitoring system",
@@ -34,7 +36,9 @@ export const projects: Project[] = [
       "Distributed system",
     ],
     technologies: ["JavaScript", "Arduino"],
-    url: "https://github.com/NicoCaz/TP-Sistema-Distribuidos",
+    repository: "https://github.com/NicoCaz/TP-Sistema-Distribuidos",
+    status: "completed",
+    icon: "Activity",
   },
   {
     title: "Fake Face creator with IA (GAN)",
@@ -45,7 +49,9 @@ export const projects: Project[] = [
       "Automated model training and deployment",
     ],
     technologies: ["Python", "Keras"],
-    url: "https://github.com/NicoCaz/Face_creator_with_GAN",
+    repository: "https://github.com/NicoCaz/Face_creator_with_GAN",
+    status: "completed",
+    icon: "Brain",
   },
   {
     title: "Banking Waiting line management system",
@@ -56,7 +62,9 @@ export const projects: Project[] = [
       "Redundancy and fault tolerance",
     ],
     technologies: ["Java"],
-    url: "https://github.com/NicoCaz/BankConnect",
+    repository: "https://github.com/NicoCaz/BankConnect",
+    status: "completed",
+    icon: "Building2",
   },
   {
     title: "MVP Medical Clinic management system",
@@ -64,6 +72,8 @@ export const projects: Project[] = [
       "MVP Medical Clinic management system for a clinic in Argentina.",
     features: ["CRUD operations", "Turns management"],
     technologies: ["Java", "Spring Boot", "React", "MySQL"],
-    url: "https://github.com/TeamProgra3/TP-Progra3",
+    repository: "https://github.com/TeamProgra3/TP-Progra3",
+    status: "completed",
+    icon: "Heart",
   },
 ];
