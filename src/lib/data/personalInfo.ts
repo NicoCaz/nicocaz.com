@@ -6,7 +6,7 @@ export const personalInfo: PersonalInfo = {
   location: "Argentina",
   email: "nicolascazorlamartinez@gmail.com",
   shortBio:
-    "Software Engineer specializing in Python, TypeScript and Product design",
+    "Software Engineer specializing in Python, .Net, TypeScript and Product design",
   longBio:
     "I'm a Software Engineer with a strong foundation in computer science and a passion for building scalable, efficient systems. Currently pursuing my Computer Science Engineering degree at Universidad Nacional de Mar del Plata, I combine academic knowledge with practical experience in the software industry.",
   social: {
