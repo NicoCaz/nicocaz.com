@@ -49,25 +49,21 @@ export const references: Reference[] = [
   {
     name: "Franco Chalop",
     title: "Pre-sales Leader at WellTech",
-
     email: "francochalop@grupowelltech.com",
   },
   {
     name: "Joaquín Carrascosa",
     title: "Cybersecurity Analyst at WellTech",
-
     email: "joaquincarrascosa@grupowelltech.com",
   },
   {
     name: "Juan Martín Ludueña",
     title: "Back-end Developer at Accenture",
-
     email: "juan.martin.luduena@accenture.com",
   },
   {
     name: "Gonzalo Othacehe",
     title: "Blockchain Developer at OpenZeppelin",
-
     email: "gothacehe@openzeppelin.com",
   },
 ];
