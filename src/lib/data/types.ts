@@ -20,7 +20,7 @@ export interface Experience {
 export interface Reference {
   name: string;
   title: string;
-  phone: string;
+  phone?: string;
   email: string;
 }
 
