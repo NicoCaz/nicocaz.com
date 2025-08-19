@@ -3,8 +3,20 @@ import type { Experience, Reference } from "./types";
 export const experience: Experience[] = [
   {
     title: "Fullstack Developer",
+    company: "Bull Market Brokers",
+    period: "August 2025 - Present",
+    description:
+      "Development with .NET",
+    responsibilities: [
+      "Building and maintaining scalable web applications",
+      "Implementing RESTful APIs and microservices",
+      "Collaborating with cross-functional teams",
+    ],
+  },
+  {
+    title: "Fullstack Developer",
     company: "Accenture for external bank client",
-    period: "October 2023 - Present",
+    period: "October 2023 - August 2025",
     description:
       "Development with .NET/Express/Nest/React/TypeScript",
     responsibilities: [
