@@ -25,7 +25,7 @@
 		</div>
 
 		<div class="mt-16">
-			<h2 class="text-2xl font-bold tracking-tight">Logros</h2>
+			<h2 class="text-2xl font-bold tracking-tight">Achievements</h2>
 			<div class="mt-6 space-y-6">
 				{#each achievements as achievement}
 					<AchievementCard {achievement} />

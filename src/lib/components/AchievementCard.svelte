@@ -35,7 +35,7 @@
 
   {#if achievement.project}
     <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
-      Proyecto: <strong>{achievement.project}</strong>
+      Project: <strong>{achievement.project}</strong>
     </p>
   {/if}
 
@@ -47,7 +47,7 @@
         rel="noopener noreferrer"
         class="inline-flex items-center gap-1.5 text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 underline underline-offset-2"
       >
-        Ver en ETHGlobal
+        View on ETHGlobal
         <span aria-hidden="true">↗</span>
       </a>
     {/if}
@@ -58,7 +58,7 @@
         rel="noopener noreferrer"
         class="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 underline underline-offset-2"
       >
-        Certificado (PDF)
+        Certificate (PDF)
         <span aria-hidden="true">↗</span>
       </a>
     {/if}

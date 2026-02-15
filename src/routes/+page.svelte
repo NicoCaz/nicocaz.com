@@ -2,14 +2,13 @@
 	import { MetaTags } from 'svelte-meta-tags';
 	import { projects } from '$lib/data/projects';
 	import { personalInfo } from '$lib/data/personalInfo';
-	import { experience } from '$lib/data/experience';
+	import { experience, achievements } from '$lib/data/experience';
 	import Skills from '$lib/components/Skills.svelte';
 	import SocialLinks from '$lib/components/SocialLinks.svelte';
 	import ExperienceCard from '$lib/components/ExperienceCard.svelte';
+	import AchievementCard from '$lib/components/AchievementCard.svelte';
 	import { fly } from 'svelte/transition';
 	import ProjectSection from '$lib/components/ProjectSection.svelte';
-	
-
 </script>
 
 <MetaTags
@@ -57,6 +56,27 @@
 			<a href="/experience" class="inline-flex h-11 items-center justify-center rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-8 text-sm font-medium text-gray-900 dark:text-white transition-colors hover:bg-gray-50 dark:hover:bg-gray-800">
 				Experience
 			</a>
+		</div>
+	</div>
+</section>
+
+<section class="container px-4 py-16 md:py-20">
+	<div class="mx-auto max-w-[980px]">
+		<div class="flex flex-col items-center gap-6 text-center mb-16">
+			<div class="relative">
+				<h2 class="text-4xl font-bold tracking-tight md:text-5xl text-gray-900 dark:text-white">
+					Achievement
+				</h2>
+				<div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-16 h-0.5 bg-amber-400 dark:bg-amber-600 rounded-full"></div>
+			</div>
+			<p class="max-w-[600px] text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+				ETHGlobal Buenos Aires — Best use of Pyth Entropy (Pyth Network)
+			</p>
+		</div>
+		<div class="space-y-6">
+			{#each achievements as achievement}
+				<AchievementCard {achievement} />
+			{/each}
 		</div>
 	</div>
 </section>
