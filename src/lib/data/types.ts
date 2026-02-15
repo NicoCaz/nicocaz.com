@@ -17,6 +17,16 @@ export interface Experience {
   responsibilities: string[];
 }
 
+export interface Achievement {
+  title: string;
+  event: string;
+  period: string;
+  prize: string;
+  project?: string;
+  projectUrl?: string;
+  certificateUrl?: string;
+}
+
 export interface Reference {
   name: string;
   title: string;

@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { MetaTags } from 'svelte-meta-tags';
-	import { experience, references } from '$lib/data/experience';
+	import { experience, achievements, references } from '$lib/data/experience';
 	import { personalInfo } from '$lib/data/personalInfo';
 	import ExperienceCard from '$lib/components/ExperienceCard.svelte';
+	import AchievementCard from '$lib/components/AchievementCard.svelte';
 	import ReferenceCard from '$lib/components/ReferenceCard.svelte';
 </script>
 
@@ -21,6 +22,15 @@
 			{#each experience as exp}
 				<ExperienceCard {exp} />
 			{/each}
+		</div>
+
+		<div class="mt-16">
+			<h2 class="text-2xl font-bold tracking-tight">Logros</h2>
+			<div class="mt-6 space-y-6">
+				{#each achievements as achievement}
+					<AchievementCard {achievement} />
+				{/each}
+			</div>
 		</div>
 
 		<div class="mt-16">

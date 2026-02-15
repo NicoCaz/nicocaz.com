@@ -35,7 +35,6 @@ declare module '$env/static/private' {
 	export const HOMEBREW_REPOSITORY: string;
 	export const TMPDIR: string;
 	export const TERM_PROGRAM_VERSION: string;
-	export const ZDOTDIR: string;
 	export const CURSOR_TRACE_ID: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const MallocNanoZone: string;
@@ -45,14 +44,11 @@ declare module '$env/static/private' {
 	export const USER: string;
 	export const COMMAND_MODE: string;
 	export const SSH_AUTH_SOCK: string;
-	export const VSCODE_PROFILE_INITIALIZED: string;
 	export const __CF_USER_TEXT_ENCODING: string;
 	export const npm_execpath: string;
 	export const PATH: string;
 	export const npm_package_json: string;
 	export const _: string;
-	export const LaunchInstanceID: string;
-	export const USER_ZDOTDIR: string;
 	export const __CFBundleIdentifier: string;
 	export const npm_command: string;
 	export const PWD: string;
@@ -64,7 +60,6 @@ declare module '$env/static/private' {
 	export const XPC_FLAGS: string;
 	export const npm_package_version: string;
 	export const XPC_SERVICE_NAME: string;
-	export const VSCODE_INJECTION: string;
 	export const SHLVL: string;
 	export const HOME: string;
 	export const VSCODE_GIT_ASKPASS_MAIN: string;
@@ -79,7 +74,6 @@ declare module '$env/static/private' {
 	export const GIT_ASKPASS: string;
 	export const INFOPATH: string;
 	export const HOMEBREW_CELLAR: string;
-	export const SECURITYSESSIONID: string;
 	export const npm_node_execpath: string;
 	export const COLORTERM: string;
 	export const NODE_ENV: string;
@@ -123,7 +117,6 @@ declare module '$env/dynamic/private' {
 		HOMEBREW_REPOSITORY: string;
 		TMPDIR: string;
 		TERM_PROGRAM_VERSION: string;
-		ZDOTDIR: string;
 		CURSOR_TRACE_ID: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		MallocNanoZone: string;
@@ -133,14 +126,11 @@ declare module '$env/dynamic/private' {
 		USER: string;
 		COMMAND_MODE: string;
 		SSH_AUTH_SOCK: string;
-		VSCODE_PROFILE_INITIALIZED: string;
 		__CF_USER_TEXT_ENCODING: string;
 		npm_execpath: string;
 		PATH: string;
 		npm_package_json: string;
 		_: string;
-		LaunchInstanceID: string;
-		USER_ZDOTDIR: string;
 		__CFBundleIdentifier: string;
 		npm_command: string;
 		PWD: string;
@@ -152,7 +142,6 @@ declare module '$env/dynamic/private' {
 		XPC_FLAGS: string;
 		npm_package_version: string;
 		XPC_SERVICE_NAME: string;
-		VSCODE_INJECTION: string;
 		SHLVL: string;
 		HOME: string;
 		VSCODE_GIT_ASKPASS_MAIN: string;
@@ -167,7 +156,6 @@ declare module '$env/dynamic/private' {
 		GIT_ASKPASS: string;
 		INFOPATH: string;
 		HOMEBREW_CELLAR: string;
-		SECURITYSESSIONID: string;
 		npm_node_execpath: string;
 		COLORTERM: string;
 		NODE_ENV: string;
