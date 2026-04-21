@@ -1,12 +1,9 @@
 <script lang="ts">
-  // Import Lucide icons
-  // To add new icons: 1) Import the icon from lucide-svelte, 2) Add to iconComponents map, 3) Update the type in types.ts
-  import { Map, Activity, Brain, Building2, Heart, Code2 } from 'lucide-svelte';
+  import { Map, Activity, Brain, Building2, Heart, Code2, ArrowUpRight } from 'lucide-svelte';
+  import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from '$lib/components/ui/card';
 
-  const { project, featured = false, class: className = '' } = $props();
-  
-  // Map of icon names to Lucide components
-  // Available icons: Map (🗺️), Activity (📊), Brain (🧠), Building2 (🏢), Heart (❤️), Code2 (💻)
+  const { project, class: className = '' } = $props();
+
   const iconComponents: Record<string, any> = {
     'Map': Map,
     'Activity': Activity,
@@ -15,141 +12,85 @@
     'Heart': Heart,
     'Code2': Code2
   };
-  
-  // Function to get the appropriate icon component
-  function getIconComponent(iconName?: "Map" | "Activity" | "Brain" | "Building2" | "Heart" | "Code2") {
-    if (iconName && iconComponents[iconName]) {
-      return iconComponents[iconName];
-    }
-    return Code2; // Default fallback icon
+
+  function getIconComponent(iconName?: string) {
+    return iconName && iconComponents[iconName] ? iconComponents[iconName] : Code2;
   }
 
   function getTechColor(tech: string) {
     const colors: Record<string, string> = {
-      'SvelteKit': 'bg-orange-50 text-orange-700 border border-orange-200',
-      'React': 'bg-blue-50 text-blue-700 border border-blue-200',
-      'TypeScript': 'bg-blue-50 text-blue-700 border border-blue-200',
-      'Python': 'bg-green-50 text-green-700 border border-green-200',
-      'Java': 'bg-red-50 text-red-700 border border-red-200',
-      'PostgreSQL': 'bg-indigo-50 text-indigo-700 border border-indigo-200',
-      'Docker': 'bg-cyan-50 text-cyan-700 border border-cyan-200',
-      'AWS': 'bg-yellow-50 text-yellow-700 border border-yellow-200',
-      'Cloudflare': 'bg-orange-50 text-orange-700 border border-orange-200'
+      'SvelteKit':   'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300',
+      'React':       'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
+      'TypeScript':  'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300',
+      'Python':      'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300',
+      'Java':        'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
+      'PostgreSQL':  'bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300',
+      'Docker':      'bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300',
+      'AWS':         'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
+      'Cloudflare':  'bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-300',
     };
-    return colors[tech] || 'bg-gray-50 text-gray-700 border border-gray-200';
-  }
-  
-  function getStatusInfo(status: string) {
-    if (status === 'active') {
-      return {
-        label: 'Currently Active',
-        color: 'bg-green-50 text-green-700 border border-green-200',
-        icon: '🔄',
-        dotColor: 'bg-green-500'
-      };
-    } else {
-      return {
-        label: 'Completed',
-        color: 'bg-gray-50 text-gray-600 border border-gray-200',
-        icon: '✓',
-        dotColor: 'bg-gray-400'
-      };
-    }
+    return colors[tech] ?? 'bg-secondary text-secondary-foreground';
   }
 
+  const isActive = $derived(project.status === 'active');
   const IconComponent = $derived(getIconComponent(project.icon));
-  const statusInfo = $derived(getStatusInfo(project.status));
+  const link = $derived(project.url ?? project.repository ?? null);
 </script>
 
-<div class="group relative rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm transition-all duration-200 hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 {project.status === 'active' ? 'ring-1 ring-green-200 dark:ring-green-800' : ''} {className}">
-  <!-- Project header -->
-  <div class="p-6 pb-4">
-    <div class="flex items-start justify-between">
+<Card class="group transition-shadow hover:shadow-md {className}">
+  <CardHeader>
+    <div class="flex items-start justify-between gap-3">
       <div class="flex items-center gap-3">
-        <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300">
-          <IconComponent size={24} />
+        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border bg-muted text-muted-foreground">
+          <IconComponent size={20} />
         </div>
-        <div>
-          <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
-            {project.title}
-          </h2>
-          <!-- Project status -->
-          <div class="flex items-center gap-2 mt-1">
-            <span class="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium {statusInfo.color}">
-              <span class="w-1.5 h-1.5 rounded-full {statusInfo.dotColor} mr-1.5"></span>
-              {statusInfo.label}
-            </span>
-            {#if project.url}
-              <span class="inline-flex items-center text-xs text-blue-600 dark:text-blue-400">
-                Live Project
-              </span>
-            {:else if project.repository}
-              <span class="inline-flex items-center text-xs text-gray-500 dark:text-gray-400">
-                Repository
-              </span>
-            {/if}
-          </div>
-        </div>
+        <CardTitle>{project.title}</CardTitle>
       </div>
+
+      <span class="inline-flex shrink-0 items-center gap-1.5 rounded-md px-2 py-1 text-xs font-medium {isActive ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' : 'bg-secondary text-secondary-foreground'}">
+        <span class="h-1.5 w-1.5 rounded-full {isActive ? 'bg-green-500' : 'bg-muted-foreground'}"></span>
+        {isActive ? 'Active' : 'Completed'}
+      </span>
     </div>
-  </div>
 
-  <!-- Project content -->
-  <div class="px-6 pb-6 space-y-4">
-    <!-- Description -->
-    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
-      {project.description}
-    </p>
-    
-    <!-- Features -->
-    {#if project.features && project.features.length > 0}
-      <div>
-        <h3 class="text-sm font-medium text-gray-900 dark:text-white mb-2">
-          Key Features
-        </h3>
-        <ul class="space-y-1">
-          {#each project.features.slice(0, 3) as feature}
-            <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
-              <span class="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-gray-400 mt-2"></span>
-              <span class="leading-relaxed">{feature}</span>
-            </li>
-          {/each}
-          {#if project.features.length > 3}
-            <li class="text-sm text-gray-500 dark:text-gray-400 font-medium ml-3.5">
-              +{project.features.length - 3} more features
-            </li>
-          {/if}
-        </ul>
-      </div>
-    {/if}
+    <CardDescription class="mt-2 leading-relaxed">{project.description}</CardDescription>
+  </CardHeader>
 
-    <!-- Technologies -->
-    <div>
-      <h3 class="text-sm font-medium text-gray-900 dark:text-white mb-2">
-        Technologies
-      </h3>
-      <div class="flex flex-wrap gap-2">
-        {#each project.technologies as tech}
-          <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium {getTechColor(tech)}">
-            {tech}
-          </span>
+  <CardContent class="space-y-4">
+    {#if project.features?.length > 0}
+      <ul class="space-y-1.5">
+        {#each project.features.slice(0, 3) as feature}
+          <li class="flex items-start gap-2 text-sm text-muted-foreground">
+            <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-muted-foreground"></span>
+            <span>{feature}</span>
+          </li>
         {/each}
-      </div>
-    </div>
-
-    <!-- Action button -->
-    {#if project.url || project.repository}
-      <div class="flex justify-end pt-2">
-        <a
-          href={project.url || project.repository}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg {project.status === 'active' ? 'bg-green-600 hover:bg-green-700' : 'bg-gray-900 hover:bg-gray-800'} dark:bg-white text-white dark:text-gray-900 text-sm font-medium transition-colors dark:hover:bg-gray-100"
-        >
-          <span>{project.url ? (project.status === 'active' ? 'View Live Project' : 'View Project') : 'View Repository'}</span>
-          <span>→</span>
-        </a>
-      </div>
+        {#if project.features.length > 3}
+          <li class="pl-3 text-xs text-muted-foreground">+{project.features.length - 3} more</li>
+        {/if}
+      </ul>
     {/if}
-  </div>
-</div>
+
+    <div class="flex flex-wrap gap-1.5">
+      {#each project.technologies as tech}
+        <span class="inline-flex items-center rounded-md px-2 py-0.5 text-xs font-medium {getTechColor(tech)}">
+          {tech}
+        </span>
+      {/each}
+    </div>
+  </CardContent>
+
+  {#if link}
+    <CardFooter>
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-sm font-medium text-foreground underline-offset-4 hover:underline"
+      >
+        {project.url ? 'View project' : 'View repository'}
+        <ArrowUpRight class="h-3.5 w-3.5" />
+      </a>
+    </CardFooter>
+  {/if}
+</Card>

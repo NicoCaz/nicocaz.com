@@ -6,9 +6,9 @@ export const personalInfo: PersonalInfo = {
   location: "Argentina",
   email: "nicolascazorlamartinez@gmail.com",
   shortBio:
-    "Software Engineer specializing in Python, .Net, TypeScript and Product design",
+    "Senior Software Engineer building scalable fintech and web3 platforms. I ship full-stack products end-to-end — from architecture to UX — across TypeScript, .NET, Python, and Solidity.",
   longBio:
-    "I'm a Software Engineer with a strong foundation in computer science and a passion for building scalable, efficient systems. Currently pursuing my Computer Science Engineering degree at Universidad Nacional de Mar del Plata, I combine academic knowledge with practical experience in the software industry.",
+    "Senior Software Engineer with 6+ years shipping software for banks, fintech, and web3. Currently building trading and brokerage platforms at Bull Market Brokers. Previously led fullstack delivery for Accenture's banking clients and ran security-focused presales at WellTech. Recently recognized at ETHGlobal Buenos Aires for tanly.app. Computer Science Engineering at UNMdP.",
   social: {
     github: "https://github.com/NicoCaz",
     linkedin: "https://linkedin.com/in/cazorlamartineznicolas",

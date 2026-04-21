@@ -24,7 +24,9 @@ export interface Achievement {
   prize: string;
   project?: string;
   projectUrl?: string;
+  projectLinkLabel?: string;
   certificateUrl?: string;
+  certificateLinkLabel?: string;
 }
 
 export interface Reference {

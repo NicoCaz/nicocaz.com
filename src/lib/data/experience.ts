@@ -8,8 +8,7 @@ export const achievements: Achievement[] = [
     prize: "Pyth Network – Best use of Pyth Entropy",
     project: "tanly.app",
     projectUrl: "https://ethglobal.com/showcase/tanly-app-dzvxr",
-    certificateUrl:
-      "https://ethglobal.b0bd725bc77a3ea7cd3826627d01fcb6.r2.cloudflarestorage.com/certificates/1248804/certificate.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=9594f0cc2b6eca8d6fd42063391f5760%2F20260215%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20260215T022523Z&X-Amz-Expires=3600&X-Amz-Signature=7242f93ba00748aa75d1336ad613572398d02fcd782a13add660f47ba907a337&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+    projectLinkLabel: "View on ETHGlobal",
   },
 ];
 
@@ -18,23 +17,24 @@ export const experience: Experience[] = [
     title: "Sr. Software Engineer",
     company: "Bull Market Brokers",
     period: "August 2025 - Present",
-    description: "Development with .NET/Express/Nest/React/TypeScript",
+    description:
+      "Building trading and brokerage platforms serving retail and institutional investors in LATAM. Stack: .NET, NestJS, React, TypeScript.",
     responsibilities: [
-      "Building and maintaining scalable web applications",
-      "Implementing RESTful APIs and microservices",
-      "Collaborating with cross-functional teams",
+      "Designing and shipping features across trading, reporting, and account management surfaces",
+      "Implementing REST APIs and background services with a focus on reliability and latency",
+      "Collaborating with product, compliance, and QA to land regulated changes safely",
     ],
   },
   {
     title: "Fullstack Developer",
-    company: "Accenture for external bank client",
+    company: "Accenture (Banking Client)",
     period: "October 2023 - August 2025",
-    description: "Development with .NET/Express/Nest/React/TypeScript",
+    description:
+      "Delivered fullstack features for a top-10 Argentine bank's digital channels across a 2-year engagement. Stack: .NET, Express, NestJS, React, TypeScript.",
     responsibilities: [
-      "Building and maintaining scalable web applications",
-      "Implementing RESTful APIs and microservices",
-      "Frontend development using React and TypeScript",
-      "Collaborating with cross-functional teams",
+      "Built customer-facing banking flows integrating core banking APIs and third-party providers",
+      "Owned React/TypeScript frontends with an emphasis on accessibility and consistent UX",
+      "Partnered with distributed teams (AR/IN) on code review, release planning, and incident response",
     ],
   },
   {
@@ -42,29 +42,23 @@ export const experience: Experience[] = [
     company: "WellTech",
     period: "June 2021 - October 2023",
     description:
-      "Worked on the complete business process from POCs to client contract signing, as well as organizing company projects",
+      "Dual role: technical presales for enterprise cybersecurity deals and hands-on security analysis for client infrastructure.",
     responsibilities: [
-      "Technical support to sales teams",
-      "Identifying customer needs and providing solutions",
-      "Technical demonstrations and presentations",
-      "Vulnerability analysis and security assessments",
-      "Implementation of security measures",
-      "Threat detection and prevention",
-      "Incident management and response",
+      "Ran POCs and technical demos that converted into signed enterprise contracts",
+      "Performed vulnerability assessments and hardening for corporate and banking clients",
+      "Led threat detection, incident response, and post-mortem documentation",
     ],
   },
   {
-    title: "Project Manager and Product Owner",
-    company: "Freelance",
+    title: "Project Manager & Product Owner",
+    company: "Freelance (alongside main roles)",
     period: "2019 - Present",
-    description: "Managing projects for major banks in Argentina and Paraguay",
+    description:
+      "Consulting on custom software for banks in Argentina and Paraguay — from requirements to delivery.",
     responsibilities: [
-      "Defining requirements and priorities with clients",
-      "Planning and coordinating projects",
-      "Resource control and team supervision",
-      "Risk management and mitigation",
-      "Developing customized banking solutions",
-      "Implementing security protocols for financial institutions",
+      "Gathered requirements and defined scope with bank stakeholders",
+      "Planned roadmaps, coordinated delivery teams, and tracked risks",
+      "Shipped bespoke banking solutions with security and compliance baked in",
     ],
   },
 ];
