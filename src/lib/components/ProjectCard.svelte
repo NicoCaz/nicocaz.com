@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Map, Activity, Brain, Building2, Heart, Code2, ArrowUpRight } from 'lucide-svelte';
+  import { Map, Activity, Brain, Building2, Heart, Code2, TrendingUp, ArrowUpRight } from 'lucide-svelte';
   import { Card, CardHeader, CardContent, CardFooter, CardTitle, CardDescription } from '$lib/components/ui/card';
 
   const { project, class: className = '' } = $props();
@@ -10,7 +10,8 @@
     'Brain': Brain,
     'Building2': Building2,
     'Heart': Heart,
-    'Code2': Code2
+    'Code2': Code2,
+    'TrendingUp': TrendingUp
   };
 
   function getIconComponent(iconName?: string) {

@@ -6,7 +6,14 @@ export interface Project {
   url?: string;
   repository?: string;
   status: "active" | "completed";
-  icon?: "Map" | "Activity" | "Brain" | "Building2" | "Heart" | "Code2";
+  icon?:
+    | "Map"
+    | "Activity"
+    | "Brain"
+    | "Building2"
+    | "Heart"
+    | "Code2"
+    | "TrendingUp";
 }
 
 export interface Experience {

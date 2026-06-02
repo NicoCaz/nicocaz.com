@@ -2,6 +2,21 @@ import type { Project } from "./types";
 
 export const projects: Project[] = [
   {
+    title: "Computo",
+    description:
+      "US stocks and ETF alert platform. Set price targets, % swings, or earnings dates once — get emailed when conditions hit, without babysitting charts.",
+    features: [
+      "Price, percentage, earnings, and ex-dividend alerts for US stocks and ETFs",
+      "Email-only notifications with per-trigger cooldowns to prevent spam",
+      "Market-hours aware checks with ET timestamps; read-only (no brokerage connection)",
+      "Free tier with watchlist; bilingual EN/ES",
+    ],
+    technologies: ["SvelteKit", "TypeScript", "PostgreSQL", "Cloudflare"],
+    url: "https://computo.app",
+    status: "active",
+    icon: "TrendingUp",
+  },
+  {
     title: "Propimap.com",
     description:
       "SaaS platform for real estate agents to manage their leads and properties.",

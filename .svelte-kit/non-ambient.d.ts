@@ -23,22 +23,3 @@ declare module "svelte/elements" {
 }
 
 export {};
-
-
-declare module "$app/types" {
-	export interface AppTypes {
-		RouteId(): "/" | "/about" | "/experience" | "/projects";
-		RouteParams(): {
-			
-		};
-		LayoutParams(): {
-			"/": Record<string, never>;
-			"/about": Record<string, never>;
-			"/experience": Record<string, never>;
-			"/projects": Record<string, never>
-		};
-		Pathname(): "/" | "/about" | "/about/" | "/experience" | "/experience/" | "/projects" | "/projects/";
-		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
-		Asset(): "/favicon.png" | "/nc.svg" | "/robots.txt" | "/sitemap.xml" | string & {};
-	}
-}
