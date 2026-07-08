@@ -9,6 +9,9 @@
 	<body data-sveltekit-preload-data="hover" class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
 		<div style="display: contents">%sveltekit.body%</div>
 		<script>
+			// Signal JS is available so reveal-on-scroll can hide content pre-animation
+			// (no-JS clients / crawlers keep everything visible).
+			document.documentElement.classList.add('js')
 			// Check for dark mode preference
 			if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
 				document.documentElement.classList.add('dark')

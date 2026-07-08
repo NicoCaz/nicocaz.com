@@ -41,9 +41,9 @@
 <!-- HERO -->
 <section class="relative flex min-h-[90vh] flex-col justify-center px-6 pt-20 md:px-12 lg:px-24">
 	<div class="reveal-init reveal-in mx-auto w-full max-w-6xl" use:reveal>
-		<h2 class="mb-4 text-sm font-medium uppercase tracking-widest text-slate-500 dark:text-slate-400">
+		<p class="mb-4 text-sm font-medium uppercase tracking-widest text-slate-500 dark:text-slate-400">
 			{personalInfo.title}
-		</h2>
+		</p>
 		<h1
 			class="mb-8 font-display text-5xl font-bold leading-[1.1] tracking-tight text-slate-900 dark:text-white md:text-7xl lg:text-8xl"
 		>
@@ -85,7 +85,7 @@
 		</div>
 	</div>
 
-	<div class="absolute bottom-12 left-6 animate-bounce md:left-12 lg:left-24">
+	<div class="absolute bottom-12 left-6 animate-bounce motion-reduce:animate-none md:left-12 lg:left-24">
 		<ArrowDown class="h-6 w-6 text-slate-400" />
 	</div>
 </section>
@@ -189,7 +189,7 @@
 
 <!-- AWARDS -->
 {#if achievements.length > 0}
-	<section id="awards" class="bg-slate-900 px-6 py-24 text-white md:px-12 lg:px-24">
+	<section id="awards" class="bg-slate-900 px-6 py-24 text-white dark:bg-slate-950 md:px-12 lg:px-24">
 		<div class="mx-auto max-w-6xl">
 			<h2
 				class="reveal-init mb-16 font-display text-3xl font-bold tracking-tight text-white md:text-4xl"
@@ -275,7 +275,8 @@
 </section>
 
 <style>
-	.reveal-init {
+	/* Hide-before-reveal ONLY when JS is available — no-JS/crawlers see content. */
+	:global(html.js) .reveal-init {
 		opacity: 0;
 		transform: translateY(20px);
 		transition:
@@ -287,7 +288,7 @@
 		transform: none !important;
 	}
 	@media (prefers-reduced-motion: reduce) {
-		.reveal-init {
+		:global(html.js) .reveal-init {
 			opacity: 1;
 			transform: none;
 			transition: none;
