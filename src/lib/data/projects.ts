@@ -2,6 +2,21 @@ import type { Project } from "./types";
 
 export const projects: Project[] = [
   {
+    title: "RoomXRay",
+    description:
+      "Chrome extension that detects fake hotel reviews and ranks listings by review authenticity, so you book based on real guest signal — not manipulated ratings.",
+    features: [
+      "Fake-review detection scoring on hotel listings",
+      "Authenticity-based ranking of results",
+      "Car-rental affiliate monetization; free to use",
+      "Browser extension — works inline on booking sites",
+    ],
+    technologies: ["TypeScript", "SvelteKit", "Chrome Extension", "Cloudflare"],
+    url: "https://roomxray.com",
+    status: "active",
+    icon: "Activity",
+  },
+  {
     title: "Computo",
     description:
       "US stocks and ETF alert platform. Set price targets, % swings, or earnings dates once — get emailed when conditions hit, without babysitting charts.",

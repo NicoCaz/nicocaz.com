@@ -2,7 +2,7 @@ export const seoConfig = {
   defaultTitle: "Nicolás Cazorla Martínez",
   titleTemplate: "%s | Nicolás Cazorla Martínez",
   description:
-    "Personal portfolio and blog of Nicolás Cazorla Martínez, a software engineer passionate about web development and technology.",
+    "Nicolás Cazorla Martínez — Senior Software Engineer with 6+ years building scalable fintech and web3 platforms. Full-stack across TypeScript, .NET, Python, and Solidity. Currently at Bull Market Brokers.",
   canonical: "https://nicocaz.com",
   openGraph: {
     type: "website",
@@ -11,16 +11,16 @@ export const seoConfig = {
     siteName: "Nicolás Cazorla Martínez",
     images: [
       {
-        url: "https://nicocaz.com/og-image.jpg",
+        url: "https://nicocaz.com/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Nicolás Cazorla Martínez",
+        alt: "Nicolás Cazorla Martínez — Senior Software Engineer",
       },
     ],
   },
   twitter: {
-    handle: "@nicocazorla",
-    site: "@nicocazorla",
+    handle: "@NicoCaz_",
+    site: "@NicoCaz_",
     cardType: "summary_large_image" as const,
   },
   additionalMetaTags: [

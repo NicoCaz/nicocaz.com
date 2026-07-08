@@ -1,0 +1,39 @@
+# Nicolás Cazorla Martínez
+
+> Senior Software Engineer with 6+ years shipping software for banks, fintech, and web3. Full-stack across TypeScript, .NET, Python, and Solidity — from architecture to UX. Based in Argentina.
+
+Nicolás Cazorla Martínez is a Senior Software Engineer currently building trading and brokerage platforms at Bull Market Brokers (LATAM retail + institutional investors). He previously led fullstack delivery for Accenture's banking clients and ran security-focused presales at WellTech. Recognized at ETHGlobal Buenos Aires 2025 (Pyth Network — Best use of Pyth Entropy) for tanly.app. Studying Computer Science Engineering at Universidad Nacional de Mar del Plata.
+
+## Contact
+- Email: nicolascazorlamartinez@gmail.com
+- GitHub: https://github.com/NicoCaz
+- LinkedIn: https://linkedin.com/in/cazorlamartineznicolas
+- Twitter/X: https://x.com/NicoCaz_
+
+## Experience
+- **Sr. Software Engineer — Bull Market Brokers** (Aug 2025–present): Trading and brokerage platforms for retail and institutional investors in LATAM. Stack: .NET, NestJS, React, TypeScript.
+- **Fullstack Developer — Accenture (Banking Client)** (Oct 2023–Aug 2025): Customer-facing banking flows for a top-10 Argentine bank. Stack: .NET, Express, NestJS, React, TypeScript.
+- **Presale Engineer & Cybersecurity Analyst — WellTech** (Jun 2021–Oct 2023): Technical presales for enterprise cybersecurity deals + vulnerability assessment and hardening for corporate/banking clients.
+- **Project Manager & Product Owner — Freelance** (2019–present): Custom banking software for clients in Argentina and Paraguay.
+
+## Selected projects
+- **RoomXRay** (https://roomxray.com): Chrome extension detecting fake hotel reviews and ranking listings by authenticity.
+- **Computo** (https://computo.app): US stocks and ETF price/earnings alert platform. Email alerts, market-hours aware, bilingual EN/ES.
+- **Propimap** (https://propimap.com): SaaS CRM for real estate agents to manage leads and properties.
+- **tanly.app** (https://ethglobal.com/showcase/tanly-app-dzvxr): ETHGlobal Buenos Aires 2025 award-winning project (Pyth Entropy).
+
+## Skills
+- Languages: TypeScript, C# (.NET), Python, Java, JavaScript, Solidity
+- Frontend: React, Next.js, Svelte/SvelteKit
+- Backend: .NET, NestJS, Express, Spring, Flask
+- Data: PostgreSQL, MySQL, MongoDB, Redis, SQLite
+- Cloud/DevOps: AWS, Azure, Docker, Kubernetes, Cloudflare
+- Other: System Design, Machine Learning, Cybersecurity, Project Management
+
+## Education
+- Computer Science Engineering — Universidad Nacional de Mar del Plata (2017–present)
+- Electro Mechanical Technician — Instituto Industrial Pablo Tavelli (2012–2017)
+
+## Languages
+- Spanish (native)
+- English (B2, professional working proficiency)

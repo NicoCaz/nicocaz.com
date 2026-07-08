@@ -1,209 +1,296 @@
 <script lang="ts">
-	import { projects } from '$lib/data/projects';
 	import { personalInfo } from '$lib/data/personalInfo';
 	import { experience, achievements } from '$lib/data/experience';
-	import AchievementCard from '$lib/components/AchievementCard.svelte';
-	import ProjectCard from '$lib/components/ProjectCard.svelte';
-	import { ArrowRight, MapPin, Mail, Github, Linkedin } from 'lucide-svelte';
-	import { Card, CardHeader, CardContent, CardTitle, CardDescription } from '$lib/components/ui/card';
-	import { Separator } from '$lib/components/ui/separator';
+	import { projects } from '$lib/data/projects';
+	import { skills } from '$lib/data/education';
+	import {
+		ArrowDown,
+		Mail,
+		Github,
+		Twitter,
+		Linkedin,
+		ExternalLink,
+		Trophy,
+		MapPin
+	} from 'lucide-svelte';
 
-	const currentRole = experience[0];
+	// Reveal-on-scroll action (replaces motion/react whileInView)
+	function reveal(node: HTMLElement) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				for (const e of entries) {
+					if (e.isIntersecting) {
+						node.classList.add('reveal-in');
+						io.unobserve(node);
+					}
+				}
+			},
+			{ threshold: 0.12 }
+		);
+		io.observe(node);
+		return { destroy: () => io.disconnect() };
+	}
 
-	// Safe: always returns 2 items regardless of active/completed mix
-	const featuredProjects = [
-		...projects.filter((p) => p.status === 'active'),
-		...projects.filter((p) => p.status === 'completed')
-	].slice(0, 2);
-
-	const techStack = ['TypeScript', 'Python', '.NET', 'React', 'SvelteKit', 'PostgreSQL', 'Cloudflare', 'Docker'];
+	const social = [
+		{ name: 'GitHub', url: personalInfo.social.github },
+		{ name: 'LinkedIn', url: personalInfo.social.linkedin },
+		{ name: 'Twitter', url: personalInfo.social.twitter }
+	];
 </script>
 
 <!-- HERO -->
-<section class="container relative overflow-hidden">
-	<div class="absolute inset-0 -z-10 bg-gradient-to-br from-gray-50 via-white to-blue-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800"></div>
-
-	<div class="mx-auto flex max-w-[860px] flex-col items-center gap-6 py-20 md:py-24 lg:py-28">
-		<!-- Avatar — single active signal: pill only, no dot -->
-		<div class="h-28 w-28 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 shadow-lg flex items-center justify-center text-3xl font-bold text-white">
-			{personalInfo.name.split(' ').map((n) => n[0]).join('')}
-		</div>
-
-		<!-- Name + subtitle + location in one focused block -->
-		<div class="text-center space-y-3">
-			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 dark:bg-green-950/40 border border-green-200 dark:border-green-800/50 text-xs font-medium text-green-700 dark:text-green-300">
-				<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-				Open to new opportunities
-			</div>
-
-			<h1 class="text-4xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl text-gray-900 dark:text-white">
-				{personalInfo.name}
-			</h1>
-
-			<!-- Title + location on one line -->
-			<p class="flex items-center justify-center gap-3 text-base text-gray-500 dark:text-gray-400">
-				<span class="font-medium text-gray-700 dark:text-gray-300">{personalInfo.title}</span>
-				<span class="text-gray-300 dark:text-gray-600">·</span>
-				<span class="inline-flex items-center gap-1">
-					<MapPin class="h-3.5 w-3.5" />
-					{personalInfo.location}
-				</span>
-			</p>
-		</div>
-
-		<p class="max-w-[620px] text-center text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+<section class="relative flex min-h-[90vh] flex-col justify-center px-6 pt-20 md:px-12 lg:px-24">
+	<div class="reveal-init reveal-in mx-auto w-full max-w-6xl" use:reveal>
+		<h2 class="mb-4 text-sm font-medium uppercase tracking-widest text-slate-500 dark:text-slate-400">
+			{personalInfo.title}
+		</h2>
+		<h1
+			class="mb-8 font-display text-5xl font-bold leading-[1.1] tracking-tight text-slate-900 dark:text-white md:text-7xl lg:text-8xl"
+		>
+			{personalInfo.name}
+		</h1>
+		<p
+			class="mb-6 max-w-2xl text-xl font-light leading-relaxed text-slate-600 dark:text-slate-300 md:text-2xl"
+		>
 			{personalInfo.shortBio}
 		</p>
+		<p class="mb-12 inline-flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400">
+			<MapPin class="h-4 w-4" />
+			{personalInfo.location}
+		</p>
 
-		<!-- CTAs first, tech strip below as proof -->
-		<div class="flex flex-col sm:flex-row gap-3">
-			<a href="/projects" class="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-gray-900 dark:bg-white px-8 text-sm font-medium text-white dark:text-gray-900 transition-colors hover:bg-gray-800 dark:hover:bg-gray-100">
-				View Projects
-				<ArrowRight class="h-4 w-4" />
-			</a>
-			<a href="mailto:{personalInfo.email}" class="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-8 text-sm font-medium text-gray-900 dark:text-white transition-colors hover:bg-gray-50 dark:hover:bg-gray-800">
+		<div class="flex flex-wrap items-center gap-6">
+			<a
+				href={`mailto:${personalInfo.email}`}
+				class="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 font-medium text-white transition-colors hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
+			>
 				<Mail class="h-4 w-4" />
 				Get in touch
 			</a>
+			<div class="flex items-center gap-4">
+				{#each social as link}
+					<a
+						href={link.url}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="rounded-full bg-slate-200/50 p-3 text-slate-600 transition-all hover:bg-slate-200 hover:text-slate-900 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white"
+						aria-label={link.name}
+					>
+						{#if link.name === 'GitHub'}<Github class="h-5 w-5" />
+						{:else if link.name === 'Twitter'}<Twitter class="h-5 w-5" />
+						{:else if link.name === 'LinkedIn'}<Linkedin class="h-5 w-5" />{/if}
+					</a>
+				{/each}
+			</div>
 		</div>
+	</div>
 
-		<!-- Tech strip after CTAs — proof, not pitch -->
-		<div class="flex flex-wrap justify-center gap-2 max-w-[620px] pt-2">
-			{#each techStack as tech}
-				<span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700">
-					{tech}
-				</span>
+	<div class="absolute bottom-12 left-6 animate-bounce md:left-12 lg:left-24">
+		<ArrowDown class="h-6 w-6 text-slate-400" />
+	</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="bg-white px-6 py-24 dark:bg-slate-900 md:px-12 lg:px-24">
+	<div class="mx-auto max-w-6xl">
+		<h2
+			class="reveal-init mb-16 font-display text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-4xl"
+			use:reveal
+		>
+			Experience
+		</h2>
+
+		<div class="space-y-16">
+			{#each experience as job}
+				<div
+					class="reveal-init group grid items-start gap-4 md:grid-cols-[1fr_3fr] md:gap-8"
+					use:reveal
+				>
+					<div class="pt-1 text-sm font-medium text-slate-500 dark:text-slate-400">
+						{job.period}
+					</div>
+					<div>
+						<h3 class="mb-1 font-display text-xl font-semibold text-slate-900 dark:text-white">
+							{job.title}
+						</h3>
+						<h4 class="mb-4 font-medium text-slate-600 dark:text-slate-400">{job.company}</h4>
+						<p class="mb-6 font-light leading-relaxed text-slate-600 dark:text-slate-300">
+							{job.description}
+						</p>
+						<ul class="space-y-2">
+							{#each job.responsibilities as item}
+								<li
+									class="flex items-start gap-2 text-sm font-light leading-relaxed text-slate-600 dark:text-slate-400"
+								>
+									<span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-slate-400"></span>
+									<span>{item}</span>
+								</li>
+							{/each}
+						</ul>
+					</div>
+				</div>
 			{/each}
 		</div>
 	</div>
 </section>
 
-<!-- ACHIEVEMENT — consistent section pattern -->
-{#if achievements.length > 0}
-	<section class="container px-4 py-16 md:py-20">
-		<div class="mx-auto max-w-[860px]">
-			<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
-				<div>
-					<p class="text-xs font-semibold tracking-widest uppercase text-amber-600 dark:text-amber-400 mb-2">
-						Latest Recognition
+<!-- PROJECTS -->
+<section id="projects" class="bg-slate-50 px-6 py-24 dark:bg-slate-950 md:px-12 lg:px-24">
+	<div class="mx-auto max-w-6xl">
+		<h2
+			class="reveal-init mb-16 font-display text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-4xl"
+			use:reveal
+		>
+			Selected Work
+		</h2>
+
+		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+			{#each projects as project}
+				{@const href = project.url ?? project.repository}
+				<div
+					class="reveal-init group flex h-full flex-col rounded-2xl border border-slate-100 bg-white p-8 shadow-sm transition-all hover:border-slate-200 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
+					use:reveal
+				>
+					<div class="mb-6 flex items-start justify-between">
+						<h3
+							class="font-display text-xl font-semibold text-slate-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
+						>
+							{project.title}
+						</h3>
+						{#if href}
+							<a
+								{href}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-slate-400 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+								aria-label={`View ${project.title}`}
+							>
+								<ExternalLink class="h-5 w-5" />
+							</a>
+						{/if}
+					</div>
+					<p class="mb-8 flex-grow font-light leading-relaxed text-slate-600 dark:text-slate-300">
+						{project.description}
 					</p>
-					<h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white md:text-3xl">
-						Award
-					</h2>
+					<div class="mt-auto flex flex-wrap gap-2">
+						{#each project.technologies as tag}
+							<span
+								class="rounded-md bg-slate-50 px-2 py-1 text-xs font-medium text-slate-600 dark:bg-slate-800 dark:text-slate-400"
+							>
+								{tag}
+							</span>
+						{/each}
+					</div>
 				</div>
-			</div>
-			<div class="space-y-6">
-				{#each achievements as achievement}
-					<AchievementCard {achievement} />
+			{/each}
+		</div>
+	</div>
+</section>
+
+<!-- AWARDS -->
+{#if achievements.length > 0}
+	<section id="awards" class="bg-slate-900 px-6 py-24 text-white md:px-12 lg:px-24">
+		<div class="mx-auto max-w-6xl">
+			<h2
+				class="reveal-init mb-16 font-display text-3xl font-bold tracking-tight text-white md:text-4xl"
+				use:reveal
+			>
+				Awards & Recognition
+			</h2>
+
+			<div class="space-y-12">
+				{#each achievements as award}
+					<div
+						class="reveal-init group grid items-start gap-6 border-b border-slate-800 pb-12 last:border-0 last:pb-0 md:grid-cols-[auto_1fr] md:gap-8"
+						use:reveal
+					>
+						<div class="rounded-2xl bg-slate-800 p-4 text-blue-400">
+							<Trophy class="h-8 w-8" />
+						</div>
+						<div>
+							<div class="mb-2 flex flex-col justify-between gap-2 md:flex-row md:items-center">
+								<h3 class="font-display text-xl font-semibold text-slate-100">
+									{award.title}
+								</h3>
+								<span
+									class="w-fit rounded-full bg-blue-400/10 px-3 py-1 text-sm font-medium text-blue-400"
+								>
+									{award.period}
+								</span>
+							</div>
+							<h4 class="mb-4 font-medium text-slate-400">{award.event}</h4>
+							<p class="font-light leading-relaxed text-slate-300">
+								{award.prize}{#if award.project} — project <span class="text-slate-100">{award.project}</span>{/if}.
+							</p>
+							{#if award.projectUrl}
+								<a
+									href={award.projectUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 hover:text-blue-300"
+								>
+									{award.projectLinkLabel ?? 'View project'}
+									<ExternalLink class="h-4 w-4" />
+								</a>
+							{/if}
+						</div>
+					</div>
 				{/each}
 			</div>
 		</div>
 	</section>
 {/if}
 
-<!-- CURRENT ROLE — canonical section pattern -->
-<section class="container px-4 py-16 md:py-20">
-	<div class="mx-auto max-w-[860px]">
-		<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
-			<div>
-				<p class="text-xs font-semibold tracking-widest uppercase text-gray-500 dark:text-gray-400 mb-2">
-					Currently
-				</p>
-				<h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white md:text-3xl">
-					{currentRole.title} at {currentRole.company}
-				</h2>
-			</div>
-			<a href="/experience" class="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white group shrink-0">
-				Full career history
-				<ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-			</a>
-		</div>
+<!-- SKILLS -->
+<section id="skills" class="bg-white px-6 py-24 dark:bg-slate-900 md:px-12 lg:px-24">
+	<div class="mx-auto max-w-6xl">
+		<h2
+			class="reveal-init mb-16 font-display text-3xl font-bold tracking-tight text-slate-900 dark:text-white md:text-4xl"
+			use:reveal
+		>
+			Technical Expertise
+		</h2>
 
-		<Card>
-			<CardHeader>
-				<div class="flex items-start justify-between gap-3">
-					<div class="space-y-0.5">
-						<CardTitle>{currentRole.title}</CardTitle>
-						<CardDescription class="font-medium">{currentRole.company}</CardDescription>
-					</div>
-					<div class="flex shrink-0 flex-col items-end gap-1.5">
-						<span class="inline-flex items-center rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
-							{currentRole.period}
-						</span>
-						<span class="inline-flex items-center gap-1.5 rounded-md bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900/30 dark:text-green-300">
-							<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
-							Active
-						</span>
+		<div class="grid gap-12 md:grid-cols-2">
+			{#each skills as group}
+				<div class="reveal-init" use:reveal>
+					<h3
+						class="mb-6 border-b border-slate-100 pb-4 font-display text-lg font-semibold text-slate-900 dark:border-slate-800 dark:text-white"
+					>
+						{group.category}
+					</h3>
+					<div class="flex flex-wrap gap-3">
+						{#each group.items as item}
+							<span
+								class="rounded-lg border border-slate-100 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-300"
+							>
+								{item}
+							</span>
+						{/each}
 					</div>
 				</div>
-			</CardHeader>
-			<CardContent class="space-y-4">
-				<p class="text-sm text-muted-foreground leading-relaxed">{currentRole.description}</p>
-				<Separator />
-				<ul class="space-y-2">
-					{#each currentRole.responsibilities.slice(0, 3) as item}
-						<li class="flex items-start gap-2 text-sm text-muted-foreground">
-							<span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-muted-foreground"></span>
-							<span class="leading-relaxed">{item}</span>
-						</li>
-					{/each}
-				</ul>
-			</CardContent>
-		</Card>
-	</div>
-</section>
-
-<!-- FEATURED PROJECTS — same section pattern -->
-<section class="container px-4 py-16 md:py-20">
-	<div class="mx-auto max-w-[860px]">
-		<div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
-			<div>
-				<p class="text-xs font-semibold tracking-widest uppercase text-gray-500 dark:text-gray-400 mb-2">
-					Selected Work
-				</p>
-				<h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white md:text-3xl">
-					Featured Projects
-				</h2>
-			</div>
-			<a href="/projects" class="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white group shrink-0">
-				All {projects.length} projects
-				<ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-			</a>
-		</div>
-
-		<div class="grid gap-6">
-			{#each featuredProjects as project}
-				<ProjectCard {project} />
 			{/each}
 		</div>
 	</div>
 </section>
 
-<!-- CONNECT — differentiated from footer (footer = sitemap, this = contact action) -->
-<section class="container px-4 py-16 md:py-24">
-	<div class="mx-auto max-w-[860px]">
-		<Card class="text-center">
-			<CardHeader>
-				<p class="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Contact</p>
-				<CardTitle tag="h2" class="text-3xl md:text-4xl tracking-tight">Hiring, consulting, or just saying hi?</CardTitle>
-				<CardDescription class="text-base max-w-[460px] mx-auto pt-1">
-					Open to engineering roles, product consulting, and web3 projects. Response within 24h.
-				</CardDescription>
-			</CardHeader>
-			<CardContent class="flex flex-wrap justify-center gap-3 pt-4">
-				<a href="mailto:{personalInfo.email}" class="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-foreground px-6 text-sm font-medium text-background transition-colors hover:bg-foreground/90">
-					<Mail class="h-4 w-4" />
-					Send email
-				</a>
-				<a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex h-11 items-center justify-center gap-2 rounded-lg border bg-background px-6 text-sm font-medium transition-colors hover:bg-accent">
-					<Linkedin class="h-4 w-4" />
-					LinkedIn
-				</a>
-				<a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer" class="inline-flex h-11 items-center justify-center gap-2 rounded-lg border bg-background px-6 text-sm font-medium transition-colors hover:bg-accent">
-					<Github class="h-4 w-4" />
-					GitHub
-				</a>
-			</CardContent>
-		</Card>
-	</div>
-</section>
+<style>
+	.reveal-init {
+		opacity: 0;
+		transform: translateY(20px);
+		transition:
+			opacity 0.6s ease-out,
+			transform 0.6s ease-out;
+	}
+	:global(.reveal-in) {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.reveal-init {
+			opacity: 1;
+			transform: none;
+			transition: none;
+		}
+	}
+</style>

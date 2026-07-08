@@ -44,10 +44,10 @@
 	});
 
 	const navItems = [
-		{ href: '/', label: 'Home' },
-		{ href: '/projects', label: 'Projects' },
-		{ href: '/experience', label: 'Experience' },
-		{ href: '/about', label: 'About' }
+		{ href: '/#experience', label: 'Experience' },
+		{ href: '/#projects', label: 'Projects' },
+		{ href: '/#awards', label: 'Awards' },
+		{ href: '/#skills', label: 'Skills' }
 	];
 </script>
 

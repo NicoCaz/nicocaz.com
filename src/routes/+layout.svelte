@@ -7,11 +7,53 @@
 	import { seoConfig } from '$lib/config/seo';
 	import { ModeWatcher } from "mode-watcher";
 
-	$: title = $page.data.title 
+	$: title = $page.data.title
 		? `${$page.data.title} | ${personalInfo.name}`
 		: `${personalInfo.name} - ${personalInfo.title}`;
 	$: description = $page.data.description || personalInfo.shortBio;
+
+	const personJsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'Person',
+		name: personalInfo.name,
+		url: seoConfig.canonical,
+		image: `${seoConfig.canonical}/og-image.png`,
+		jobTitle: 'Senior Software Engineer',
+		email: `mailto:${personalInfo.email}`,
+		description: personalInfo.longBio,
+		address: {
+			'@type': 'PostalAddress',
+			addressCountry: personalInfo.location
+		},
+		worksFor: {
+			'@type': 'Organization',
+			name: 'Bull Market Brokers'
+		},
+		alumniOf: {
+			'@type': 'CollegeOrUniversity',
+			name: 'Universidad Nacional de Mar del Plata'
+		},
+		knowsAbout: [
+			'Software Engineering',
+			'Fintech',
+			'Web3',
+			'TypeScript',
+			'.NET',
+			'Python',
+			'Solidity',
+			'System Design'
+		],
+		sameAs: [
+			personalInfo.social.github,
+			personalInfo.social.linkedin,
+			personalInfo.social.twitter
+		]
+	};
 </script>
+
+<svelte:head>
+	{@html `<script type="application/ld+json">${JSON.stringify(personJsonLd)}<\/script>`}
+</svelte:head>
 
 <MetaTags
 	title={title}

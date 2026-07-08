@@ -38,10 +38,10 @@
       <div class="container mx-auto px-4 py-8">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
           <nav class="flex items-center gap-6">
-            <a href="/" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Home</a>
-            <a href="/projects" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Projects</a>
-            <a href="/experience" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Experience</a>
-            <a href="/about" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">About</a>
+            <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">GitHub</a>
+            <a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">LinkedIn</a>
+            <a href={personalInfo.social.twitter} target="_blank" rel="noopener noreferrer" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Twitter</a>
+            <a href={`mailto:${personalInfo.email}`} class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">Email</a>
           </nav>
           <p class="text-sm text-gray-500 dark:text-gray-400">
             © {currentYear} {personalInfo.name}

@@ -111,3 +111,6 @@ lerna.json
 
 # Cloudflare Pages
 .wrangler/
+
+# local design source (React prototype, not shipped)
+portfolio/
