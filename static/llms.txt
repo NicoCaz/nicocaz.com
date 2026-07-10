@@ -2,6 +2,8 @@
 
 > Senior Software Engineer with 6+ years shipping software for banks, fintech, and web3. Full-stack across TypeScript, .NET, Python, and Solidity — from architecture to UX. Based in Argentina.
 
+Canonical site: https://nicocaz.com — single-page portfolio. Also known as "NicoCaz" (GitHub/X handle). Last updated: 2026-07-10.
+
 Nicolás Cazorla Martínez is a Senior Software Engineer currently building trading and brokerage platforms at Bull Market Brokers (LATAM retail + institutional investors). He previously led fullstack delivery for Accenture's banking clients and ran security-focused presales at WellTech. Recognized at ETHGlobal Buenos Aires 2025 (Pyth Network — Best use of Pyth Entropy) for tanly.app. Studying Computer Science Engineering at Universidad Nacional de Mar del Plata.
 
 ## Contact
@@ -37,3 +39,9 @@ Nicolás Cazorla Martínez is a Senior Software Engineer currently building trad
 ## Languages
 - Spanish (native)
 - English (B2, professional working proficiency)
+
+## FAQ
+- **Who is Nicolás Cazorla Martínez?** A Senior Software Engineer from Argentina specialized in fintech and banking software, currently at Bull Market Brokers.
+- **What does NicoCaz build?** Trading platforms, banking flows, and indie SaaS products: RoomXRay (hotel review analysis), Computo (stock alerts), Propimap (real-estate CRM).
+- **How to contact him?** Email nicolascazorlamartinez@gmail.com or via LinkedIn/X links above.
+- **Is he available for freelance/consulting?** He has run freelance banking-software projects since 2019 for clients in Argentina and Paraguay — reach out by email.
