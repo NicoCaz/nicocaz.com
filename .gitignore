@@ -114,3 +114,5 @@ lerna.json
 
 # local design source (React prototype, not shipped)
 portfolio/
+
+.scannerwork/
