@@ -43,11 +43,7 @@ export const seoConfig = {
       media: "(prefers-color-scheme: dark)",
     },
   ],
-  additionalLinkTags: [
-    {
-      rel: "icon",
-      href: "/nc.svg",
-      type: "image/svg+xml",
-    },
-  ],
+  // Icons live in app.html (static shell) so crawlers see them without waiting on
+  // svelte:head — avoids competing with a leftover scaffold favicon.png.
+  additionalLinkTags: [],
 };
